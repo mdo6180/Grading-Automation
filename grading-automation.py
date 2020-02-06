@@ -25,13 +25,3 @@ for i in range(0, len(dir_list)):
 
     print('{}: {}'.format(dir_list[i], output))
 
-    '''
-        try:
-        score = int(output.split('/')[0])
-        max_score = int(output.split('/')[1])
-        print('{}: {}'.format(dir_list[i], score))
-
-    except Exception as e:
-        print('{}: {}'.format(dir_list[i], e))    
-    '''
-
