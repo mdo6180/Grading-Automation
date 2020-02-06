@@ -17,11 +17,12 @@ dir_list = sorted(listdir(input_dir))
 chdir(input_dir)    # cd into input directory
 
 for i in range(0, len(dir_list)):
-    pipe = subprocess.Popen(['python3', tester_file, dir_list[i]],
-                            stdout=subprocess.PIPE,
-                            stderr=subprocess.STDOUT)
+    if dir_list[i].endswith('.py') and not dir_list[i].startswith('tester'):
+        pipe = subprocess.Popen(['python3', tester_file, dir_list[i]],
+                                stdout=subprocess.PIPE,
+                                stderr=subprocess.STDOUT)
 
-    output = pipe.stdout.readlines()[-1].decode('UTF-8')      # string is in the form like '10/10'
+        output = pipe.stdout.readlines()[-1].decode('UTF-8')      # string is in the form like '10/10'
 
-    print('{}: {}'.format(dir_list[i], output))
+        print('{}: {}'.format(dir_list[i], output))
 
